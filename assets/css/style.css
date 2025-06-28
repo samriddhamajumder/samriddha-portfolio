@@ -1554,6 +1554,7 @@ hr {
   color: initial;
 }
 
+
 /*------------Image_Box-------------*/
 .cs_hero.cs_style_2 .cs_hero_image_box .cs_happy_client {
   position: absolute;
@@ -5356,5 +5357,47 @@ hr {
 .cs_video_popup_align {
   overflow: hidden;
 }
+.animated-title {
+  overflow: hidden;
+  white-space: nowrap;
+}
 
+
+
+
+
+
+
+.animate-title {
+  background: linear-gradient(90deg, #500c99, #b397e0, #e66767);
+  background-size: 300% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: animateTitleGradient 6s ease-in-out infinite;
+  font-weight: 700;
+  display: inline-block;
+}
+
+@keyframes animateTitleGradient {
+  0% {
+    background-position: 0% center;
+  }
+  50% {
+    background-position: 100% center;
+  }
+  100% {
+    background-position: 0% center;
+  }
+}
+
+
+
+
+
+
+
+
+
+    
 /*End Video Popup*//*# sourceMappingURL=style.css.map */
