@@ -78,9 +78,17 @@
               <h1 class="cs_hero_title cs_font_92 cs_black wow fadeInLeft" data-wow-duration="0.8s" data-wow-delay="0.2s"><span class="cs_gradient_text">Samriddha</span><br>
                 <span class="cs_gradient_border_text fix-cut-text">Majumder&nbsp;</span> 
               <div class="text-animate">
- <h4 class="cs_hero_subtitle cs_font_36 cs_semi_bold cs_primary_font cs_white_blue_text_2">
-  <span class="cs_accent_color_2 animate-title">Cloud & Security</span> Engineer
+<h4 class="cs_hero_subtitle cs_font_36 cs_semi_bold cs_primary_font cs_white_blue_text_2">
+  <span class="typewriter-loop"></span><span class="cursor">|</span>
 </h4>
+
+
+
+
+
+
+
+
 
 
 
@@ -874,3 +882,38 @@
   <script src="assets/js/main.js"></script>
 </body>
 </html>
+<script>
+  const textArray = ["Cloud & Security Engineer"];
+  const typingSpeed = 100;
+  const delayBetweenLoops =  20000;
+
+  const element = document.querySelector('.typewriter-loop');
+  let textIndex = 0;
+  let charIndex = 0;
+
+  function type() {
+    if (charIndex < textArray[textIndex].length) {
+      element.textContent += textArray[textIndex].charAt(charIndex);
+      charIndex++;
+      setTimeout(type, typingSpeed);
+    } else {
+      setTimeout(erase, delayBetweenLoops);
+    }
+  }
+
+  function erase() {
+    if (charIndex > 0) {
+      element.textContent = textArray[textIndex].substring(0, charIndex - 1);
+      charIndex--;
+      setTimeout(erase,  100);
+    } else {
+      setTimeout(type, 800);
+    }
+  }
+
+  // Start typing on load
+  document.addEventListener("DOMContentLoaded", function () {
+    setTimeout(type, 500);
+  });
+</script>
+
