@@ -47,6 +47,7 @@
     modalVideo();
     tabs();
     counterInit();
+    countUpInit();
     progressBar();
     if ($.exists('.wow')) {
       new WOW().init();
@@ -55,6 +56,7 @@
 
   $(window).on('scroll', function () {
     counterInit();
+    countUpInit();
   });
 
   /*--------------------------------------------------------------
@@ -207,6 +209,30 @@
         var elemOffset = $(this).offset().top;
         if (elemOffset < winScrollPosition()) {
           $(this).html($(this).data('count-to'));
+        }
+      });
+    }
+  }
+
+  /*--------------------------------------------------------------
+    CountUp Animation for hire section
+  --------------------------------------------------------------*/
+  function countUpInit() {
+    if ($.exists('.countup')) {
+      var scrollPos = $(window).scrollTop(),
+        winHeight = $(window).height();
+      var scrollPosition = Math.round(scrollPos + winHeight / 1.2);
+
+      $('.countup').each(function () {
+        var $el = $(this);
+        var elemOffset = $el.offset().top;
+        if (elemOffset < scrollPosition && !$el.data('counted')) {
+          var endVal = $el.data('count');
+          var cu = new CountUp(this, endVal);
+          if (!cu.error) {
+            cu.start();
+            $el.data('counted', true);
+          }
         }
       });
     }

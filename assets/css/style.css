@@ -45,7 +45,7 @@ html {
   font-weight: 400;
   line-height: 1.666em;
   overflow-x: hidden;
-  background: linear-gradient(#1e3a8a, #233eae);
+  background: linear-gradient(#f9f9f9, #ffffff, #f4f2ff);
 }
 
 h1,
@@ -5436,6 +5436,85 @@ hr {
   height: 100%;
   z-index: 0;
   pointer-events: none;
+}
+
+/* Hire section extras */
+#hire-section {
+  position: relative;
+  overflow: hidden;
+}
+
+#hire-particles {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hire_wave_top,
+.hire_wave_bottom {
+  position: absolute;
+  width: 160px;
+  z-index: 1;
+  animation: floatUpDown 6s ease-in-out infinite;
+}
+
+.hire_wave_top {
+  top: 0;
+  right: 0;
+}
+
+.hire_wave_bottom {
+  bottom: 0;
+  left: 0;
+  transform: rotate(180deg);
+}
+
+.watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 120px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  opacity: 0.04;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.shimmer-text {
+  background: linear-gradient(90deg, #ff6d5a, #ff9a9e, #ff6d5a);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+          text-fill-color: transparent;
+  animation: shimmer 3s linear infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+.hire-card {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.hire-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.hire-cta:hover {
+  box-shadow: 0 0 10px rgba(255, 109, 90, 0.7), 0 0 20px rgba(255, 109, 90, 0.5);
+}
+
+@media (max-width: 575px) {
+  .hire_cards {
+    flex-direction: column;
+  }
 }
 
 
