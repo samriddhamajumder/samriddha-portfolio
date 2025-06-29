@@ -75,8 +75,10 @@
             <div class="cs_hero_info cs_pr_20">
               <h4 class="cs_hero_meta cs_font_48 cs_white_blue_text_2 cs_semi_bold cs_primary_font mb-0">Hi! I’m<br>
               </h4>
-              <h1 class="cs_hero_title cs_font_92 cs_black wow fadeInLeft" data-wow-duration="0.8s" data-wow-delay="0.2s"><span class="cs_gradient_text">Samriddha</span><br>
-                <span class="cs_gradient_border_text fix-cut-text">Majumder&nbsp;</span> 
+              <h1 class="cs_hero_title cs_font_92 cs_black wow fadeInLeft" data-wow-duration="0.8s" data-wow-delay="0.2s">
+                <span class="cs_gradient_text typewriter-title">Samriddha</span><br>
+                <span class="cs_gradient_border_text fix-cut-text typewriter-title">Majumder&nbsp;</span>
+              </h1>
               <div class="text-animate">
 <h4 class="cs_hero_subtitle cs_font_36 cs_semi_bold cs_primary_font cs_white_blue_text_2">
   <span class="typewriter-loop"></span><span class="cursor">|</span>
@@ -911,9 +913,39 @@
     }
   }
 
+  // Type animation for hero title
+  function typeHeroTitle() {
+    const titleEls = document.querySelectorAll('.typewriter-title');
+    const speed = 100;
+    let elIndex = 0;
+    let charPos = 0;
+    let currentText = '';
+
+    function typeChar() {
+      if (elIndex >= titleEls.length) return;
+      const el = titleEls[elIndex];
+      if (charPos === 0) {
+        currentText = el.textContent.trim();
+        el.textContent = '';
+      }
+      if (charPos < currentText.length) {
+        el.textContent += currentText.charAt(charPos);
+        charPos++;
+        setTimeout(typeChar, speed);
+      } else {
+        elIndex++;
+        charPos = 0;
+        setTimeout(typeChar, speed);
+      }
+    }
+
+    typeChar();
+  }
+
   // Start typing on load
   document.addEventListener("DOMContentLoaded", function () {
     setTimeout(type, 500);
+    setTimeout(typeHeroTitle, 500);
   });
 </script>
 
